@@ -8,33 +8,68 @@ module probador (
     // Inicialización de las señales
     reset = 1; 
     A = 0; 
-    B = 0; 
-    C = 0; 
+    B = 0;
+    C = 0;
     clock = 0; 
     
     // Se apaga el reset
     #5 reset = 0;
     
     // Escenario de prueba 1. Escenario Ideal.
-    #4 A = 1; B = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; // Como la contrasena es 00111111, se busca que las
-    #4 A = 1; B = 0; // ondas de los estados reflejen esos bits. Es un flop por
-    #4 A = 1; B = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 0;
+    #4 A = 0; C = 0;
     //#10 A = 1; B = \; //Cuando los flops se comportan como la senal, es un caso de 
     //#10 A = 1; B = 1; //exito.
-    
+    #15 reset = 0;
     // Funcionamiento del sensor A (llegada de carro), sensor B(contrasena) y 
     // sensor C (carro ya termino de entrar)
-//
-    //#85 A = 0; B = 0; C = 1;
-    //#85 A = 1; B = 1; C = 0;
-    //#85 A = 1; B = 0 ; C = 1;
-    //#85 A = 1; C = 1;
-    //#85 A = 0; C = 0;
+
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    
+    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 1; // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 0;
+    #4 A = 0; C = 0;
+
+
+
+
+
     #100 $finish;
    
   end
