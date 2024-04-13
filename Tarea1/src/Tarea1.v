@@ -12,7 +12,6 @@ reg [7:0] last_state;
 reg permiso;
 
 // Variables para el control del tiempo
-//reg [2:0] contador_tiempo = 0; // Contador de 4 bits para contar hasta 15 segundos
 reg [1:0] contador = 0;
 
 // Máquina de estados

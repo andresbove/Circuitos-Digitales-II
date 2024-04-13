@@ -31,16 +31,39 @@ module probador (
     #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 0;
     #4 A = 0; C = 0;
+    #4 A = 0;
+
+    // Escenario de prueba 2. 2 intentos fallidos consecutivos.
+    #10 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 1; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; B = 0;
 
 
-    
-    
-    // Escenario de contraseña incorrecta 3 veces y alarma
+  // Escenario de prueba 3. 3 intentos fallidos consecutivos.
+    #25 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
     #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
     #4 A = 1; B = 1; C = 0; D = 0; 
@@ -50,7 +73,7 @@ module probador (
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
     #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
     #4 A = 1; B = 1; C = 0; D = 0; 
@@ -60,17 +83,15 @@ module probador (
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
     #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
     #4 A = 1; B = 1; C = 0; D = 0; 
     #1 D = 1;
     #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; // Se va el carro
+    #4 A = 0;B = 0;
     
-
-    //llega otro carro, pero con la contraseña correcta
-    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #35 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
     #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
@@ -82,12 +103,9 @@ module probador (
     #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 1; // Cuando se va a ir el carro, llega otro
+    #4 A = 1;
 
-
-
-
-    #100 $finish;
+    #50 $finish;
    
   end
 
