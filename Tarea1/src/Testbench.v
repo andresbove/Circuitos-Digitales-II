@@ -1,10 +1,11 @@
 `include "probador.v"
 `include "Tarea1.v"
 
-module aguja_tb;
+module controlador_TB;
         // Señales de salida
     wire Bloqueo;
     wire Aguja;
+    wire Alarma;
     wire A;
     wire B;
     wire C;
@@ -17,18 +18,20 @@ module aguja_tb;
     // Generación de estímulo
     initial begin
         $dumpfile("testbench.vcd"); // Genera un archivo VCD para ver la simulación
-        $dumpvars(-1, uut); // Agrega todas las variables a ser volcadas en el archivo VCD
+        $dumpvars(-1, DUT); // Agrega todas las variables a ser volcadas en el archivo VCD
     end
 
         // Instancia del módulo a testear
-    me uut (
+    controlador DUT (
         .reset(reset),
         .A(A),
         .B(B),
         .C(C),
+        .D(D),
         .Bloqueo(Bloqueo),
         .Aguja(Aguja),
-        .clock(clock)
+        .clock(clock),
+        .Alarma(Alarma)
        // .valid(valid)
     );
 
@@ -38,9 +41,11 @@ module aguja_tb;
         .A(A),
         .B(B),
         .C(C),
+        .D(D),
         .Bloqueo(Bloqueo),
         .Aguja(Aguja),
-        .clock(clock)
+        .clock(clock),
+        .Alarma(Alarma)
        // .valid(valid)
     );
 //cambio para notar push

@@ -1,6 +1,6 @@
 module probador (
-    output reg reset, A, B, C, clock, // Declarar como reg porque son driven en el testbench
-    input Bloqueo, Aguja
+    output reg reset, A, B, C, D, clock, // Declarar como reg porque son driven en el testbench
+    input Bloqueo, Aguja, Alarma
 );
 
 
@@ -10,62 +10,79 @@ module probador (
     A = 0; 
     B = 0;
     C = 0;
+    D = 0;
     clock = 0; 
     
-    // Se apaga el reset
+    // Se activa el reset
     #5 reset = 0;
     
     // Escenario de prueba 1. Escenario Ideal.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
-    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
-    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
     #4 A = 0; C = 0;
     #4 A = 0; C = 0;
-    //#10 A = 1; B = \; //Cuando los flops se comportan como la senal, es un caso de 
-    //#10 A = 1; B = 1; //exito.
-    #15 reset = 0;
-    // Funcionamiento del sensor A (llegada de carro), sensor B(contrasena) y 
-    // sensor C (carro ya termino de entrar)
 
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
-    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
-    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+
     
-    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 1; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 1; // Como la contrasena es 00111111, se busca que las
-    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
-    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 0; C = 0; //Validacion de la contrasena en base a los estados.
-    #4 A = 1; B = 1; C = 0; // Como la contrasena es 00111111, se busca que las
-    #4 A = 1; B = 0; C = 0; // ondas de los estados reflejen esos bits. Es un flop por
-    #4 A = 1; B = 0; C = 0; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
-    #4 A = 0; C = 0;
-    #4 A = 0; C = 0;
+    
+    // Escenario de contraseña incorrecta 3 veces y alarma
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 1; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 1; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 1; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 1; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; // Se va el carro
+    
 
+    //llega otro carro, pero con la contraseña correcta
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 0; C = 0; D = 0;  // Validacion de la contrasena en base a los estados.
+    #4 A = 1; B = 1; C = 0; D = 0;  // Como la contrasena es 00111111, se busca que las
+    #4 A = 1; B = 0; C = 0; D = 0;  // ondas de los estados reflejen esos bits. Es un flop por
+    #4 A = 1; B = 0; C = 0; D = 0; 
+    #1 D = 1;
+    #2 D = 0; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 0; C = 1; // bit. Entonces, cada flop va a tener un valor binario.
+    #4 A = 1; // Cuando se va a ir el carro, llega otro
 
 
 
